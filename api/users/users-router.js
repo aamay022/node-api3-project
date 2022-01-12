@@ -95,9 +95,7 @@ router.post('/:id/posts', validatePost, validateUserId, (req, res, next) => {
     res.status(210).json(newPost);
   })
   .catch(error => {
-    res.status(400).json({
-      error: "missing required text field",
-    })
+    next(error);
   });
 });
 
